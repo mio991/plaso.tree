@@ -24,17 +24,17 @@ namespace Plaso.Tree
         /// <summary>The Level or Depth of the Node.</summary>
         public int Level => 8 - (BitOperations.TrailingZeroCount(reference) / 8);
 
-        /// <summary>The Parrent Node</summary>
-        public NodeReference? Parrent
+        /// <summary>The Parent Node</summary>
+        public NodeReference? Parent
         {
             get
             {
                 if (this != NodeReference.Root)
                 {
-                    ulong parrentAddressMask = ~maskForLevel(Level);
-                    ulong parrentAddress = reference & parrentAddressMask;
+                    ulong parentAddressMask = ~maskForLevel(Level);
+                    ulong parentAddress = reference & parentAddressMask;
 
-                    return new NodeReference(parrentAddress);
+                    return new NodeReference(parentAddress);
                 }
                 else
                 {

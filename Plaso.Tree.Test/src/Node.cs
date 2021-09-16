@@ -17,27 +17,27 @@ namespace Tests
 
             {
                 var child = NodeReference.Root.FirstChild.Value;
-                var root = child.Parrent.Value;
+                var root = child.Parent.Value;
                 Assert.That(root, Is.EqualTo(NodeReference.Root));
             }
 
             {
                 var child = NodeReference.Root.LastChild.Value;
-                var root = child.Parrent.Value;
+                var root = child.Parent.Value;
                 Assert.That(root, Is.EqualTo(NodeReference.Root));
             }
 
             {
                 var child = NodeReference.Root.FirstChild.Value;
                 var sibling = child.NextSibling.Value;
-                var root = sibling.Parrent.Value;
+                var root = sibling.Parent.Value;
                 Assert.That(root, Is.EqualTo(NodeReference.Root));
             }
 
             {
                 var child = NodeReference.Root.LastChild.Value;
                 var sibling = child.PreviousSibling.Value;
-                var root = sibling.Parrent.Value;
+                var root = sibling.Parent.Value;
                 Assert.That(root, Is.EqualTo(NodeReference.Root));
             }
         }
@@ -45,7 +45,7 @@ namespace Tests
         [Test]
         public void RootHasNoParrent()
         {
-            Assert.That(NodeReference.Root.Parrent, Is.EqualTo(null));
+            Assert.That(NodeReference.Root.Parent, Is.EqualTo(null));
         }
     }
 }
